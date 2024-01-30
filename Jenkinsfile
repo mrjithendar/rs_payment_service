@@ -32,5 +32,11 @@ pipeline {
                 sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${service}:latest"
             }
         }
+
+        stage ('EKS Acthenticate') {
+            steps {
+                sh "aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} -name ${eks_cluster_name}"
+            }
+        }
     }
 }
