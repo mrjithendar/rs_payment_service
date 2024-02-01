@@ -1,4 +1,4 @@
-FROM      python:3.9
+FROM      python:3.6
 RUN       mkdir /app
 WORKDIR   /app
 COPY      payment-docker.py payment.py
